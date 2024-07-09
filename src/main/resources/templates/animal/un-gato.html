@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+</head>
+<body>
+	<h1 th:if="${gato != null}" th:text="${cabecera}"></h1>
+	<h1 th:if="${gato == null}">Mostrando ningún gato</h1>
+	
+	<p th:if="${gato != null}" th:text="${texto}"></p>
+	
+	<ul th:if="${gato != null}">
+		<li>Tipo: <span th:text="${gato.getTipo()}"></span></li>
+		<li>Peso (gr): <span th:text="${gato.getPeso}"></span></li>
+		<li>Precio (€): <span th:text="${gato.precio}"></span></li>
+	</ul>
+</body>
+</html>
