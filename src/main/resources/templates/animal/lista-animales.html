@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+
+<style>
+table {
+	border-collapse: collapse;
+	margin: 0 auto; /* Margen automático para centrar horizontalmente */
+}
+
+td, th {
+	border: 1px solid darkgray;
+	padding: 8px;
+	text-align: center;
+}
+</style>
+
+</head>
+<body>
+	<h1 th:text="${cabecera}"></h1>
+
+	<p th:text="${parrafo}"></p>
+
+	<table>
+		<thead>
+			<tr>
+				<td><b>Id</b></td>
+				<td><b>Tipo de animal</b></td>
+				<td><b>Precio</b></td>
+				<td><b>Peso</b></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="animal: ${lista}">
+				<td><a th:text="${animal.id}"
+					th:href="@{/animales/un-animal/} + ${animal.id}"></a></td>
+				<td th:text="${animal.tipo}"></td>
+				<td th:text="${animal.peso}"></td>
+				<td th:text="${animal.precio}"></td>
+			</tr>
+
+		</tbody>
+
+	</table>
+
+	<a th:href="@{/animales/ungato}">Ir a un gato</a>
+
+</body>
+</html>
